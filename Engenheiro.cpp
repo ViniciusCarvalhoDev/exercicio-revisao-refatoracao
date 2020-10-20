@@ -1,11 +1,21 @@
-#include <string>
 #include "Empregado.hpp"
 
-class Engenheiro : public Empregado {
+class Engenheiro : protected Empregado {
 
   public:
-    std::string nome;  
-	int projetos;
-	
+    Engenheiro(std::string nome, double salarioHora, int projetos) : Empregado(nome, salarioHora) { 
+      _projetos = projetos;
+    }   
+	  int _projetos;
+
+
+    void print(double pagamento){
+
+        std::cout << "Nome: " << _nome << std::endl;
+        std::cout << "Salario Mes: " << pagamentoMes(pagamento) << std::endl;
+        std::cout << "Projetos: " << _projetos << std::endl;  
+        std::cout << std::endl;
+
+      }
 };
 
